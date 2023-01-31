@@ -82,9 +82,6 @@
 [submodule "generators/riscv-sodor"]
 	path = generators/riscv-sodor
 	url = https://github.com/ucb-bar/riscv-sodor.git
-[submodule "fpga/fpga-shells"]
-	path = fpga/fpga-shells
-	url = https://github.com/chipsalliance/rocket-chip-fpga-shells.git
 [submodule "tools/api-config-chipsalliance"]
 	path = tools/api-config-chipsalliance
 	url = https://github.com/chipsalliance/api-config-chipsalliance.git
@@ -136,3 +133,6 @@
 [submodule "generators/dsagen2"]
 	path = generators/dsagen2
 	url = https://github.com/map0te/dsagen2
+[submodule "fpga/fpga-shells"]
+	path = fpga/fpga-shells
+	url = https://github.com/PolyArch/fpga-shells.git
