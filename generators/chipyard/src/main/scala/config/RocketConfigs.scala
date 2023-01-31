@@ -1,5 +1,6 @@
 package chipyard
 
+import dsagen2.top.config.WithMesh4Gemm
 import freechips.rocketchip.config.{Config}
 import freechips.rocketchip.diplomacy.{AsynchronousCrossing}
 
@@ -256,3 +257,94 @@ class MulticlockAXIOverSerialConfig extends Config(
   new freechips.rocketchip.subsystem.WithNBigCores(2) ++
   new chipyard.config.AbstractConfig)
 // DOC include end: MulticlockAXIOverSerialConfig
+
+/* ---------------- DSAGen2 Configuration Start --------------------*/
+
+// DSA Generated from ADG
+class DSAGenRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new dsagen2.top.config.WithDSAGenFromADG() ++
+    new chipyard.config.AbstractConfig)
+
+// DSA under development
+class DevDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new dsagen2.top.config.WithDevDSA ++
+    new chipyard.config.AbstractConfig)
+
+// Mesh DSA
+class DemoDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new dsagen2.top.config.WithDemoDSA ++
+    new chipyard.config.AbstractConfig)
+
+// Mesh DSA
+class MeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new chipyard.config.AbstractConfig)
+
+// Mesh DSA with Dual SPM
+class MeshDSADualSPMRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+  new chipyard.config.AbstractConfig)
+    new dsagen2.top.config.WithMeshDSADualSPM ++
+    new chipyard.config.AbstractConfig)
+
+// Dual Rocket+MeshDSA SoC
+class DualMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(2) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBanks(2) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(2) ++
+    new chipyard.config.AbstractConfig)
+
+// Triple Rocket+MeshDSA SoC
+class TriMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(3) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBanks(4) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new chipyard.config.AbstractConfig)
+
+// Quad Rocket-MeshDSA SoC
+class QuadMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(4) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBanks(4) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new chipyard.config.AbstractConfig)
+
+// Octa Rocket-MeshDSA SoC
+class OctaMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(8) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBanks(8) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new chipyard.config.AbstractConfig)
+
+// Octa Rocket-MeshDSA for GEMM SoC
+class OctaMeshGemmRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(8) ++
+    new dsagen2.top.config.WithMesh4Gemm ++
+    new freechips.rocketchip.subsystem.WithNBanks(8) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new chipyard.config.AbstractConfig)
+
+// Hexa Rocket-MeshDSA SoC
+class HexaMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(16) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBanks(16) ++
+    new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new chipyard.config.AbstractConfig)
+
+// DSE Generated ADG for Vision
+class DSAGenVisionRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBanks(16) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(13) ++
+    new dsagen2.top.config.WithDSAGenFromADG("/home/sihao/repo/ss-stack/chipyard/generators/dsagen2/adg/dse/vision.json") ++
+    new chipyard.config.AbstractConfig
+)
+
+/* ---------------- DSAGen2 Configuration End --------------------*/
