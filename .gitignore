@@ -8,6 +8,7 @@ target
 *.swp
 *.swo
 *.log
+*.jou
 *#
 *~
 .idea
@@ -16,6 +17,11 @@ env.sh
 tags
 *~
 .bsp/
+.sbtopts
+.metals/*
+test_run_dir
+ucli.key
+vsrc
 .conda-env/
 .#*
 first-clone-setup-fast-log
