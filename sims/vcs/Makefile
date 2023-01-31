@@ -93,7 +93,7 @@ $(output_dir)/%.fsdb: $(output_dir)/% $(sim_debug)
 #########################################################################################
 .PHONY: clean clean-sim clean-sim-debug
 clean:
-	rm -rf $(gen_dir) $(sim_prefix)-* ucli.key
+	rm -rf $(gen_dir) $(sim_prefix)-* ucli.key verdi_config_file novas_dump.log
 
 clean-sim:
 	rm -rf $(model_dir) $(build_dir)/vc_hdrs.h $(sim) $(sim).daidir ucli.key

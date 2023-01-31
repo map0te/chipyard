@@ -10,6 +10,13 @@ else
 WAVEFORM_FLAG=+vcdplusfile=$(sim_out_name).vpd
 endif
 
+NPROCS:=1
+OS:=$(shell uname -s)
+
+ifeq ($(OS), Linux)
+  NPROCS := $(shell grep -c ^processor /proc/cpuinfo)
+endif
+
 # If ntb_random_seed unspecified, vcs uses 1 as constant seed.
 # Set ntb_random_seed_automatic to actually get a random seed
 ifdef RANDOM_SEED
@@ -50,7 +57,7 @@ VCS_NONCC_OPTS = \
 	-f $(sim_common_files) \
 	-sverilog +systemverilogext+.sv+.svi+.svh+.svt -assert svaext +libext+.sv \
 	+v2k +verilog2001ext+.v95+.vt+.vp +libext+.v \
-	-debug_pp \
+	-debug_acc+pp+f+fn+dmptf -debug_region+cell+encrypt \
 	+incdir+$(build_dir) \
 	$(sim_vsrcs)
 
