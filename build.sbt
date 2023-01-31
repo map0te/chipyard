@@ -147,7 +147,7 @@ lazy val testchipip = (project in file("generators/testchipip"))
 lazy val chipyard = (project in file("generators/chipyard"))
   .dependsOn(testchipip, rocketchip, boom, hwacha, sifive_blocks, sifive_cache, iocell,
     sha3, // On separate line to allow for cleaner tutorial-setup patches
-    dsptools, `rocket-dsp-utils`, dsagen
+    dsptools, `rocket-dsp-utils`, dsagen2,
     gemmini, icenet, tracegen, cva6, nvdla, sodor, ibex, fft_generator,
     constellation, mempress)
   .settings(libraryDependencies ++= rocketLibDeps.value)
@@ -222,7 +222,7 @@ lazy val nvdla = (project in file("generators/nvdla"))
   .settings(commonSettings)
 
 
-lazy val dsagen = (project in file("generators/dsagen"))
+lazy val dsagen2 = (project in file("generators/dsagen2"))
   .dependsOn(testchipip, rocketchip)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(chiselTestSettings)

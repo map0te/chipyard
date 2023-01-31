@@ -124,7 +124,7 @@ ifeq ($(SUB_PROJECT),constellation)
 	TOP               ?= NoC
 endif
 # For Domain-Specific Accelerator developers
-ifeq ($(SUB_PROJECT),dsagen)
+ifeq ($(SUB_PROJECT),dsagen2)
 	SBT_PROJECT       ?= chipyard
 	MODEL             ?= TestHarness
 	VLOG_MODEL        ?= TestHarness
